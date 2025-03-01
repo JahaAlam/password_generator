@@ -6,8 +6,7 @@ letters = [
 numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 symbols = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "-", "=", "{", "}", "[", "]", "|", "\\", ":", ";", "\"", "'", "<", ">", ",", ".", "?", "/"]
 
-random_choice = random.choice(letters)
-print(random_choice)
+
 print("Welcome to Password Generator !")
 
 nr_letters = int(input("How many letter would you like  in your password !\n"))
@@ -15,16 +14,37 @@ nr_symbols = int(input("How many symbols would you like in your password ! \n"))
 nr_numbers = int(input("how many number would you like in your password ! \n"))
 
 # easy level password generator
-password = ""
+#password = ""
+#for char in range(0, nr_letters):
+    #password += random.choice(letters)
+
+#for char in range(0, nr_symbols):
+    #password += random.choice(symbols)
+
+#for char in range(0, nr_numbers):
+    #password += random.choice(numbers)
+
+#print(f"your final password {password}")
+
+
+#hard level password generator
+
+password_list = []
 for char in range(0, nr_letters):
-    password += random.choice(letters)
+    password_list.append(random.choice(letters))
 
 for char in range(0, nr_symbols):
-    password += random.choice(symbols)
+    password_list.append(random.choice(symbols))
 
 
 for char in range(0, nr_numbers):
-    password += random.choice(numbers)
+    password_list.append(random.choice(numbers))
 
+print(password_list)
+random.shuffle(password_list)
+print(password_list)
 
-print(password)
+password = ""
+for char in password_list:
+    password += char
+print( f"your final password {password}")
